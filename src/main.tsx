@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import CongratulationsPopUp from './Components/CongratulationsPopUp';
+import FidelizarCliente from './Components/FidelizarCliente';
+import FullScreenLoading from './Components/FullScreenLoading';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-        <h1>Configuración inicial lista. Empezamos!</h1>
-  </React.StrictMode>
+    <React.StrictMode>
+
+            {/* <FullScreenLoading/> */}
+            {/* <CongratulationsPopUp/> */}
+            <FidelizarCliente/>
+
+    </React.StrictMode>
 )

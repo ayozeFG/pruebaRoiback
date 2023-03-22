@@ -1,0 +1,20 @@
+{
+    "Title": "Hotel Guest",
+    "Fields": [
+        {
+            "Description": "Name",
+            "Name": "Name",
+            "Required": true
+        },
+        {
+            "Description": "Last Name",
+            "Name": "lastName",
+            "Required": true
+        },
+        {
+            "Description": "Email",
+            "Name": "Email",
+            "Required": true
+        }
+    ]
+}

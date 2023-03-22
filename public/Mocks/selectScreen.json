@@ -1,0 +1,21 @@
+{
+    "Title": "Sign up",
+    "subTitle": "What kind of user are your?",
+    "Registered": "are you registered?",
+    "Profiles": [
+        {
+
+            "ID": "Guest",
+            "apiURL": "Mocks/guestForm.json",
+            "Description": "A hotel guest"
+
+        },
+        {
+
+            "ID": "Agency",
+            "apiURL": "Mocks/agencyForm.json",
+            "Description": "A travel agency"
+
+        }
+    ]
+}

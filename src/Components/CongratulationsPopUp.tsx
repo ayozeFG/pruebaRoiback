@@ -1,3 +1,4 @@
+import Button from './Button';
 import CloseIcon from './CloseIcon';
 
 const CongratulationsPopUp = () => {
@@ -5,7 +6,7 @@ const CongratulationsPopUp = () => {
         <div className='shadowModal' style={{
             minHeight: '400px',
             maxHeight: '80vh',
-            width: '100%',
+            width: '90%',
             maxWidth: '400px',
             position: 'absolute',
             top: '50%',
@@ -14,10 +15,10 @@ const CongratulationsPopUp = () => {
             borderRadius: '8px',
             display: 'flex',
             flexDirection: 'column',
-            overflow: 'hidden'
+            overflow: 'hidden',
         }}>
             <div style={{textAlign: 'center', padding: '2em 0', color: 'white', backgroundColor: '#69a9fc'}}>
-                <CloseIcon Size={14} Color='white' butonStyles={{position: 'absolute', right: '12px', top: '12px'}} onClick={(event)=>{console.log(alert('Cerrar'))}}/>
+                <CloseIcon Size={14} Color='white' butonStyles={{position: 'absolute', right: '12px', top: '12px'}} onClick={(event)=>{alert('Cerrar')}}/>
                 <h3>Thank you!</h3>
             </div>
             <div style={{position: 'relative', padding: '10px 0px'}}>
@@ -25,7 +26,7 @@ const CongratulationsPopUp = () => {
             </div>
             <div style={{flex: 1, display: 'flex', flexDirection: 'column', padding: '1.5em', overflow: 'auto'}}>
                 <p style={{flex: 1, height: '100%', overflow: 'auto'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vor adipisicing elilit. Vom dolor sit amet consectetur adipisicing elit. Voluptate obcaecati aut quas. FugaLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate obcaecati aut quas. Fuga rerum saepe autem quam repellat magnam, aperiam facilis omnis accusamus ea. Placeat, eaque! Aliquam doloremque minus sit?</p>
-                <button style={{backgroundColor: '#0450b4', padding: '1.5em', justifyContent: 'end', borderRadius: '8px', textAlign: 'center', color: 'white', fontSize: '1.1em', letterSpacing: '0.1em'}}>Continue</button>
+                <Button Text='Continue' Type='Filled' onClick={(event) => {alert("Pendiente de implementar")}} />
             </div>
         </div>
     )

@@ -6,6 +6,8 @@
 body{
     position: relative;
     height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 button{
@@ -23,10 +25,26 @@ h1, h2, h3{
     box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5);
 }
 
-/* TODO: las propiedades básicas el botón que se repiten entre los diferentes tipos de botón, sacarlas a una clase a parte que sea .btn por ejemplo. */
-.buttonOutlined{
-    border: 1px solid #0450b4;
-    border-radius: 8px;
+.btn{
     padding: 1.5em;
+    border-radius: 8px;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.btn.Outlined{
+    border: 1px solid #0450b4;
     color: #0450b4;
 }
+
+.btn.Filled{
+    background-Color: #0450b4;
+    color: white;
+}
+
+input[type=text] {
+    all: unset;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 10px;
+  }

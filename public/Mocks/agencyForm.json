@@ -1,0 +1,20 @@
+{
+    "Title": "Travel Agency",
+    "Fields": [
+        {
+            "Description": "Company Name",
+            "Name": "companyName",
+            "Required": true
+        },
+        {
+            "Description": "Agency Id Code",
+            "Name": "agencyID",
+            "Required": true
+        },
+        {
+            "Description": "Email",
+            "Name": "Email",
+            "Required": true
+        }
+    ]
+}

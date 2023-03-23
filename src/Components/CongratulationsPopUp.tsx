@@ -26,7 +26,7 @@ const CongratulationsPopUp = () => {
             </div>
             <div style={{flex: 1, display: 'flex', flexDirection: 'column', padding: '1.5em', overflow: 'auto'}}>
                 <p style={{flex: 1, height: '100%', overflow: 'auto'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vor adipisicing elilit. Vom dolor sit amet consectetur adipisicing elit. Voluptate obcaecati aut quas. FugaLorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate obcaecati aut quas. Fuga rerum saepe autem quam repellat magnam, aperiam facilis omnis accusamus ea. Placeat, eaque! Aliquam doloremque minus sit?</p>
-                <Button Text='Continue' Type='Filled' onClick={(event) => {alert("Pendiente de implementar")}} />
+                <Button Text='Continue' Style='Filled' onClick={(event) => {alert("Pendiente de implementar")}} />
             </div>
         </div>
     )

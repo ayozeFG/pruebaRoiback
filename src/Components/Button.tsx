@@ -1,14 +1,16 @@
 
 interface Props{
     Text: string;
-    Type: 'Outlined' | 'Filled';
-    butonStyles?: React.CSSProperties;
-    onClick: (event: React.MouseEvent<HTMLElement>)=> void;
+    Style: 'Outlined' | 'Filled';
+    Type?: 'button' | 'submit';
+    extraStyles?: React.CSSProperties;
+    Disabled?: boolean;
+    onClick?: (event: React.MouseEvent<HTMLElement>)=> void;
 }
 
-const Button = ({Text, Type, butonStyles, onClick}: Props) => {
+const Button = ({ Text, Type='button', extraStyles, Style, Disabled=false, onClick }: Props) => {
     return (
-        <button style={butonStyles} onClick={onClick} className={`btn ${Type}`}>
+        <button style={extraStyles} type={Type} onClick={onClick} className={`btn ${Style} ${Disabled && 'dsp'}`} disabled={Disabled}>
             { Text }
         </button>
     )

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { IDynamicFieldData } from "../Interfaces/dynamicFieldsData";
 import Button from "./Button";
-import DynamicForm from "./DynamicForm";
+import { Form } from "./CustomForm/DynamicForm";
 import FullScreenLoading from "./FullScreenLoading";
 
 const INITIAL_SCREEN_DATA_ENDPOINT = 'Mocks/selectScreen.json';
@@ -18,12 +19,7 @@ export interface IProfile {
 }
 export interface ILoyaltyForm {
     Title: string
-    Fields: ILoyaltyFormField[]
-}
-export interface ILoyaltyFormField {
-    Description: string
-    Name: string
-    Required: boolean
+    Fields: IDynamicFieldData[]
 }
 
 const FidelizarCliente = () => {
@@ -49,7 +45,7 @@ const FidelizarCliente = () => {
                 .catch((err) =>{
                     //TODO: Gestionar el error
                 });
-        }, 1000);
+        }, 200);
     }, []);
 
     const handleProfileSelect = (apiURL: RequestInfo | URL)=>{
@@ -63,6 +59,7 @@ const FidelizarCliente = () => {
                     return res.json();
                 })
                 .then(data => {
+                    console.log(data)
                     setIsLoading(false);
                     setLoyaltyFormData(data);
                     setLoyaltyStep('profileForm');
@@ -70,7 +67,7 @@ const FidelizarCliente = () => {
                 .catch((err) =>{
                     //TODO: Gestionar el error
                 });
-        }, 1000);
+        }, 200);
     }
 
     const showScreen = ()=>{
@@ -100,7 +97,7 @@ const FidelizarCliente = () => {
                             <Button
                                 key={profile.ID}
                                 Text={profile.Description}
-                                Type='Outlined'
+                                Style='Outlined'
                                 onClick={()=>{handleProfileSelect(profile.apiURL)}}
                             />
                         ))
@@ -108,7 +105,7 @@ const FidelizarCliente = () => {
                 </div>
             </div>
         }else if(loyaltyStep === 'profileForm' && loyaltyFormData){
-            return <DynamicForm formData={loyaltyFormData} onSubmitForm={()=>{}} />
+            return <Form formData={loyaltyFormData}/>
         }else if(loyaltyStep === 'formSent'){
 
         }

@@ -2,19 +2,31 @@
     "Title": "Travel Agency",
     "Fields": [
         {
-            "Description": "Company Name",
-            "Name": "companyName",
-            "Required": true
+            "fieldName": "companyName",
+            "inputType": "text",
+            "label": "Company Name",
+            "defaultValue": "",
+            "config": {
+                "required": "Required"
+            }
         },
         {
-            "Description": "Agency Id Code",
-            "Name": "agencyID",
-            "Required": true
+            "fieldName": "agencyID",
+            "inputType": "text",
+            "label": "Agency Id Code",
+            "defaultValue": "",
+            "config": {
+                "required": "Required"
+            }
         },
         {
-            "Description": "Email",
-            "Name": "Email",
-            "Required": true
+            "fieldName": "email",
+            "inputType": "text",
+            "label": "Email",
+            "defaultValue": "",
+            "config": {
+                "required": "Required"
+            }
         }
     ]
 }

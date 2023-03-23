@@ -2,19 +2,31 @@
     "Title": "Hotel Guest",
     "Fields": [
         {
-            "Description": "Name",
-            "Name": "Name",
-            "Required": true
+            "fieldName": "name",
+            "inputType": "text",
+            "label": "Name",
+            "defaultValue": "",
+            "config": {
+                "required": "Required"
+            }
         },
         {
-            "Description": "Last Name",
-            "Name": "lastName",
-            "Required": true
+            "fieldName": "lastName",
+            "inputType": "text",
+            "label": "Last Name",
+            "defaultValue": "",
+            "config": {
+                "required": "Required"
+            }
         },
         {
-            "Description": "Email",
-            "Name": "Email",
-            "Required": true
+            "fieldName": "emal",
+            "inputType": "text",
+            "label": "Email",
+            "defaultValue": "",
+            "config": {
+                "required": "Required"
+            }
         }
     ]
 }

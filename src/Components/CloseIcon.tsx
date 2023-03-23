@@ -13,11 +13,11 @@ const CloseIcon = ({Size=12, Color="black", butonStyles=undefined, onClick}:Prop
                 <line x1="1" y1={Size}
                     x2={Size} y2="1"
                     stroke={Color}
-                    stroke-width="2"/>
+                    strokeWidth="2"/>
                 <line x1="1" y1="1"
                     x2={Size} y2={Size}
                     stroke={Color}
-                    stroke-width="2"/>
+                    strokeWidth="2"/>
             </svg>
         </button>
     )

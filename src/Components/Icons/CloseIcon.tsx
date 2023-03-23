@@ -1,12 +1,6 @@
+import { IIconProps } from "../../Interfaces/iconProps";
 
-interface Props{
-    Size?: number;
-    Color?: 'white' | 'black';
-    butonStyles?: React.CSSProperties;
-    onClick: (event: React.MouseEvent<HTMLElement>)=> void;
-}
-
-const CloseIcon = ({Size=12, Color="black", butonStyles=undefined, onClick}:Props) => {
+const CloseIcon = ({Size=12, Color="black", butonStyles=undefined, onClick}:IIconProps) => {
     return (
         <button style={butonStyles} onClick={onClick}>
             <svg style={{width: Size, height: Size}} xmlns="http://www.w3.org/2000/svg">

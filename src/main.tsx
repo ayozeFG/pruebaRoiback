@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import CongratulationsPopUp from './Components/CongratulationsPopUp';
-import FidelizarCliente from './Components/FidelizarCliente';
-import FullScreenLoading from './Components/FullScreenLoading';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+import FidelizarCliente from './FidelizarCliente';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
-
-            {/* <FullScreenLoading/> */}
-            {/* <CongratulationsPopUp/> */}
+    // <React.StrictMode>
+        <Provider store={store}>
             <FidelizarCliente/>
-
-    </React.StrictMode>
+        </Provider>
+    // </React.StrictMode>
 )

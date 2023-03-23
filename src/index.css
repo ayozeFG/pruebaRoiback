@@ -51,4 +51,22 @@ input[type=text] {
     border: none;
     border-bottom: 2px solid black;
     padding: 10px;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
   }
+  @-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+.fadeIn {
+-webkit-animation-duration: 0.3s;
+animation-duration: 0.3s;
+-webkit-animation-fill-mode: both;
+animation-fill-mode: both;
+
+-webkit-animation-name: fadeIn;
+animation-name: fadeIn;
+}

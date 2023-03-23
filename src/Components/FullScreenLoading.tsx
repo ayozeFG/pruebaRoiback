@@ -1,6 +1,6 @@
 
 export const FullScreenLoading = () => (
-    <div style={{
+    <div className='fadeIn' style={{
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

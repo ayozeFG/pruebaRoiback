@@ -1,25 +1,24 @@
 import { FormProvider, useForm } from "react-hook-form";
+import { ILoyaltyForm } from "../../Interfaces/loyaltyFormData";
 import Button from "../Button";
-import CloseIcon from "../CloseIcon";
-import { ILoyaltyForm } from "../FidelizarCliente";
+import CloseIcon from "../Icons/CloseIcon";
+import GoBackIcon from "../Icons/GoBackIcon";
 import { DynamicField } from "./DynamicField";
 
 interface FormProps {
     formData: ILoyaltyForm;
+    closeClick: (event: React.MouseEvent<HTMLElement>)=>void;
+    goBackClick: (event: React.MouseEvent<HTMLElement>)=>void;
+    onSubmit: (data: any)=>void;
 }
 
-export const Form = ({ formData }: FormProps) => {
+export const Form = ({ formData, closeClick, goBackClick, onSubmit }: FormProps) => {
     const formMethods = useForm();
+
     //TODO: Pendiente controlar errores producidos en los campos.
     //TODO: Mantener el botón de enviar deshabilitado hasta que rellenen el formulario.
-    const { handleSubmit, formState: { isSubmitting, errors }} = formMethods;
 
-    function onSubmit(data: any, error:any) {
-        console.log(data);
-        console.log(error)
-        //TODO: Controlar los posibles errores.
-        //TODO: Si todo fue bien despues de guardar los datos, mostrar pantalla final
-    }
+    const { handleSubmit, formState: { isSubmitting, errors }} = formMethods;
 
     return (
 
@@ -37,9 +36,8 @@ export const Form = ({ formData }: FormProps) => {
         }}>
 
             <div style={{borderBottom: '1px solid grey', padding: '1em', display: 'flex', justifyContent: 'space-between'}}>
-                {/* //TODO: Hacer un svg y un componente para la flecha atrás */}
-                <span>Atrás</span>
-                <CloseIcon Color='black' Size={16} onClick={()=>{alert("Pendiente de implementar")}} />
+                <GoBackIcon onClick={goBackClick}/>
+                <CloseIcon Color='black' Size={16} onClick={closeClick} />
             </div>
 
             <div style={{display: 'flex', padding:'1em', flexDirection:'column', height: '100%', flex: 1, gap: '3em', marginTop: '2em'}}>

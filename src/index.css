@@ -6,44 +6,16 @@
 body{
     position: relative;
     height: 100vh;
+}
+
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 button{
     all: unset;
-}
-
-h1, h2, h3{
-    padding: 0;
-    margin: 0;
-}
-
-.shadowModal{
-    -webkit-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.5);
-}
-
-.btn{
-    padding: 1.5em;
-    border-radius: 8px;
-    letter-spacing: 0.1em;
-    text-align: center;
-}
-
-.btn.Outlined{
-    border: 1px solid #0450b4;
-    color: #0450b4;
-}
-
-.btn.Filled{
-    background-Color: #0450b4;
-    color: white;
-}
-.btn.dsp{
-    opacity: 0.5;
-    pointer-events: none;
 }
 
 input[type=text] {
@@ -53,20 +25,38 @@ input[type=text] {
     padding: 10px;
 }
 
+.container{
+    width: 100%;
+    max-width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
-  }
-  @-webkit-keyframes fadeIn {
+}
+@-webkit-keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
-  }
-.fadeIn {
--webkit-animation-duration: 0.3s;
-animation-duration: 0.3s;
--webkit-animation-fill-mode: both;
-animation-fill-mode: both;
+}
 
--webkit-animation-name: fadeIn;
-animation-name: fadeIn;
+.fadeIn {
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+.radius{
+    border-radius: 8px;
 }

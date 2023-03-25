@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title{
+    margin-top: 1em;
+}
+
+.subTitle{
+    color: #C9832C;
+    font-weight: 100;
+    letter-spacing: 0.3em;
+    font-size: 0.8em;
+}
+
+.loadingText{
+    margin-top: 2em;
+    letter-spacing: 0.3em;
+    opacity: 0.5;
+}

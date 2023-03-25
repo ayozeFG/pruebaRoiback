@@ -1,0 +1,22 @@
+
+.btn{
+    padding: 1.5em;
+    border-radius: 8px;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.Outlined{
+    border: 1px solid #0450b4;
+    color: #0450b4;
+}
+
+.Filled{
+    background-color: #0450b4;
+    color: white;
+}
+
+.dsp{
+    opacity: 0.5;
+    pointer-events: none;
+}

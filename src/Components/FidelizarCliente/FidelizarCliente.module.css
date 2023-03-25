@@ -1,0 +1,18 @@
+/* Styles para la pantalla inicial donde el cliente selecciona un perfil de fidelización */
+.profScreen{
+    text-align: center;
+}
+.profTitle{
+    margin-bottom: 3rem;
+}
+.profSubTitle{
+    margin-bottom: 1rem;
+}
+.profContBtns{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 12px;
+}
+
+

@@ -1,0 +1,54 @@
+/* Styles para la pantalla donde se muestra el formulario que debe rellenar el cliente para fidelizarse */
+.formScreen{
+    min-height: 100%;
+    max-width: 100% !important;
+}
+
+.topBar{
+    border-bottom: 1px solid grey;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.formCont{
+    display: flex;
+    padding-bottom: 1rem;
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
+    gap: 3rem;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+.formScreenForm{
+    display: flex;
+    width: 100%;
+    max-width: 90% !important;
+    height: 100%;
+    flex-direction: column;
+    flex: 1;
+    justify-content:space-between;
+}
+
+.fieldsCont{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.fieldLabel{
+    opacity: 0.6;
+}

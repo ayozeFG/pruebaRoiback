@@ -1,8 +1,8 @@
-import React from 'react';
+//import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
-import FidelizarCliente from './FidelizarCliente';
+import FidelizarCliente from './Components/FidelizarCliente/FidelizarCliente';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

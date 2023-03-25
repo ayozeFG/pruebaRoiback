@@ -1,9 +1,10 @@
-import { FormProvider, useForm } from "react-hook-form";
-import { ILoyaltyForm } from "../../Interfaces/loyaltyFormData";
-import Button from "../Button";
-import CloseIcon from "../Icons/CloseIcon";
-import GoBackIcon from "../Icons/GoBackIcon";
-import { DynamicField } from "./DynamicField";
+import { FormProvider, useForm } from 'react-hook-form';
+import { ILoyaltyForm } from '../../Interfaces/loyaltyFormData';
+import Button from '../Buttons/Button';
+import CloseIcon from '../Buttons/CloseIcon';
+import GoBackIcon from '../Buttons/GoBackIcon';
+import { DynamicField } from './DynamicField';
+import styles from './DynamicForm.module.css';
 
 interface FormProps {
     formData: ILoyaltyForm;
@@ -21,38 +22,23 @@ export const Form = ({ formData, closeClick, goBackClick, onSubmit }: FormProps)
     const { handleSubmit, formState: { isSubmitting, errors }} = formMethods;
 
     return (
-
-        <div style={{
-            minHeight: '100%',
-            width: '100%',
-            maxWidth: '400px',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden',
-        }}>
-
-            <div style={{borderBottom: '1px solid grey', padding: '1em', display: 'flex', justifyContent: 'space-between'}}>
+        <div className={`container ${styles.formScreen}`}>
+            <div className={styles.topBar}>
                 <GoBackIcon onClick={goBackClick}/>
                 <CloseIcon Color='black' Size={16} onClick={closeClick} />
             </div>
 
-            <div style={{display: 'flex', padding:'1em', flexDirection:'column', height: '100%', flex: 1, gap: '3em', marginTop: '2em'}}>
+            <div className={styles.formCont}>
+                <h2 className={styles.title}>{ formData.Title }</h2>
 
-                <h2 style={{textAlign:'center'}}>{ formData.Title }</h2>
-
-                <form onSubmit={handleSubmit(onSubmit)} noValidate style={{display: 'flex', height: '100%', flexDirection: 'column', flex: 1, justifyContent:'space-between', gap: '2em'}}>
-                        <div style={{display: 'flex', flexDirection: 'column', gap: '2em'}}>
-
+                <form className={styles.formScreenForm} onSubmit={handleSubmit(onSubmit)} noValidate>
+                        <div className={styles.fieldsCont}>
                             <FormProvider {...formMethods}>
                                 {
                                     formData.Fields.map((field, index) => (
-                                        <div key={index} style={{display: 'flex', flexDirection: 'column', gap: '0.5em'}}>
+                                        <div className={styles.field} key={index}>
                                             {/* Nombre del campo */}
-                                            <label style={{opacity:0.6}} htmlFor={field.fieldName}>
+                                            <label className={styles.fieldLabel} htmlFor={field.fieldName}>
                                                 {`${field.label} ${field?.config?.required && '(required)'}`}
                                             </label>
 
@@ -62,12 +48,11 @@ export const Form = ({ formData, closeClick, goBackClick, onSubmit }: FormProps)
                                     ))
                                 }
                             </FormProvider>
-
                         </div>
                         <Button Text='Enviar' Type='submit' Style='Filled' Disabled={isSubmitting}/>
                 </form>
-            </div>
 
+            </div>
         </div>
     );
 };

@@ -1,10 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { clienteLoyaltySlice } from './slices/fidelizarCliente/clientLoyaltySlice';
-
+import { clientFidelizationSlice } from './slices/fidelizarCliente/clientFidelizationSlice';
 
 export const store = configureStore({
     reducer: {
-       clientLoyalty: clienteLoyaltySlice.reducer,
+       clientLoyalty: clientFidelizationSlice.reducer,
 
     },
 })

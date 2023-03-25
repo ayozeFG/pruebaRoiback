@@ -1,12 +1,13 @@
 
 import styles from './FullLoading.module.css';
 
-export const FullScreenLoading = () => (
+interface Props{
+    fadeIn?: boolean;
+}
 
-    // TODO: Hacer el fadeIn o fadeOut opcional. El primer fullScreenloading de la aplicación que tenga solo fadeOut, para que aparezca inmediatamente.
-    // El resto, entre formularios, que tenga fadeIn, así si la petición es muy rápida no se notará el parpadeo.
+export const FullScreenLoading = ({ fadeIn=true }:Props) => (
 
-    <div className={`${styles.container} fadeIn`}>
+    <div className={`${styles.container} ${fadeIn ? 'fadeIn' : ''}`}>
         <img src='/mvLoading.png' alt='Mobile image for loading screen'></img>
         <h1 className={styles.title}>ROIBACK</h1>
         <h2 className={styles.subTitle}>Mobilis</h2>

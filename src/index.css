@@ -1,6 +1,7 @@
 :root {
     font-family: Helvetica, Arial, sans-serif;
     background-color: rgb(234, 234, 234);
+    text-size-adjust: 100%;
 }
 
 body{
@@ -48,8 +49,8 @@ input[type=text] {
 }
 
 .fadeIn {
-    -webkit-animation-duration: 0.3s;
-    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 

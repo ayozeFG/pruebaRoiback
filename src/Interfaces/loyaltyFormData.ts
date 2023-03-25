@@ -1,6 +1,7 @@
 import { IDynamicFieldData } from "./dynamicFieldsData";
 
 export interface ILoyaltyForm {
-    Title: string
-    Fields: IDynamicFieldData[]
+    ID: string;
+    Title: string;
+    Fields: IDynamicFieldData[];
 }

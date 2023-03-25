@@ -6,14 +6,12 @@
         {
 
             "ID": "Guest",
-            "apiURL": "api/guestForm.json",
             "Description": "A hotel guest"
 
         },
         {
 
             "ID": "Agency",
-            "apiURL": "api/agencyForm.json",
             "Description": "A travel agency"
 
         }

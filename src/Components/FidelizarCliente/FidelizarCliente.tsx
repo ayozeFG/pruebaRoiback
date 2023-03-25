@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import CongratulationsPopUp from '../CongratsPopUp/CongratulationsPopUp';
-import { Form } from '../CustomForm/DynamicForm';
+import AdvantagesPopUp from '../CongratsPopUp/AdvantagesPopUp';
+import DynamicForm from '../CustomForm/DynamicForm';
 import FullScreenLoading from '../Loading/FullScreenLoading';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store';
-import { getInitialData } from '../../store/slices/fidelizarCliente/thunks';
-import { changeStep } from '../../store/slices/fidelizarCliente/clientLoyaltySlice';
+import { getInitialData, loadProfileAdvantages, registerFidelization } from '../../store/slices/fidelizarCliente/thunks';
+import { changeStep } from '../../store/slices/fidelizarCliente/clientFidelizationSlice';
 import SelectProfileScreen from './SelectProfileScreen';
 
 const INITIAL_SCREEN_DATA_ENDPOINT = 'api/selectScreen.json';
@@ -13,29 +13,23 @@ const INITIAL_SCREEN_DATA_ENDPOINT = 'api/selectScreen.json';
 const FidelizarCliente = () => {
 
     const dispatch:AppDispatch = useDispatch();
-    const { isLoading, initialScreenData, loyaltyStep, activeFormData } = useSelector((state:RootState) => state.clientLoyalty);
+    const { isLoading, initialScreenData, loyaltyStep, activeFormData, error, registeredID, advantages} = useSelector((state:RootState) => state.clientLoyalty);
 
+    /**
+     * Carga la información inicial la primera vez que se monta el componente, la cual contendrá los perfiles de fidelización existentes
+     */
     useEffect(() => {
         dispatch( getInitialData(INITIAL_SCREEN_DATA_ENDPOINT) );
     }, []);
 
     /**
-     * Comprueba en que estado se encuentra el componente para renderizar la pantalla correspondiente
-     * @returns Devuelve el componente a renderizar
+     * Una vez se ha registrado el cliente, obtiene las ventajas de la fidelización y le muestra la ventana de bienvenida
      */
-    const showScreen = ()=>{
-
-        if(isLoading)return <FullScreenLoading/>;
-
-        if(loyaltyStep === 'initialScreen' && initialScreenData) return <SelectProfileScreen screenData={initialScreenData} />;
-
-        if(loyaltyStep === 'profileForm' && activeFormData) return <Form formData={activeFormData} onSubmit={onSubmitForm} closeClick={goToStartScreen} goBackClick={goToStartScreen} />;
-
-        if(loyaltyStep === 'formSent') return <CongratulationsPopUp closeClick={goToStartScreen} continueClick={goToStartScreen} />;
-
-        //TODO: Se podría hacer una pantalla de error para mostrar en estos casos inesperados.
-        return <h2>Upss!! algo a ido mal. Disculpe las molestias</h2>;
-    }
+    useEffect(() => {
+        if(registeredID){
+            dispatch(loadProfileAdvantages(registeredID));
+        }
+    }, [registeredID]);
 
     /**
      * Responde al click en el botón de cerrar y continuar en la pantalla que se muestra despues de enviar el formulario y en los botones de retroceder y
@@ -49,22 +43,25 @@ const FidelizarCliente = () => {
      * Responde al evento submit sobre el formulario de fidelización
      * @param formData Datos del formulario
      */
-    const onSubmitForm = (formData: any)=>{
-        console.log(formData);
-
+    const onSubmitForm = async(formData: any)=>{
         //TODO: Controlar los posibles errores y si todo está correcto, mandar a guardar.
-
-        //Muestra la pantalla final (solo en caso de que se haya completado con éxisto el proceso)
-        dispatch(changeStep('formSent'));
+        //TODO: Agregar al formData el ID de la fidelización seleccionada, el cual se encuentra en el Store en 'activeFormData.ID'
+        dispatch( registerFidelization(formData));
     }
 
-    return (
-        <>
-            {
-                showScreen()
-            }
-        </>
-    )
+    //TODO: Hacer una pantalla para cuando se producen errores
+    if(error) return <h2>Upss!! algo a ido mal. Disculpe las molestias</h2>;
+
+    if(loyaltyStep === 'idle' || isLoading) return <FullScreenLoading />;
+
+    if(loyaltyStep === 'initialScreen' && initialScreenData) return <SelectProfileScreen />;
+
+    if(loyaltyStep === 'profileForm' && activeFormData) return <DynamicForm formData={activeFormData} onSubmit={onSubmitForm} closeClick={goToStartScreen} goBackClick={goToStartScreen} />;
+
+    if(loyaltyStep === 'seeAdvantajes' && advantages) return <AdvantagesPopUp advantages={advantages} closeClick={goToStartScreen} continueClick={goToStartScreen} />;
+
+    //TODO: Hacer una pantalla para cuando se producen errores
+    return <h2>Upss!! algo a ido mal. Disculpe las molestias</h2>;
 }
 
 export default FidelizarCliente;

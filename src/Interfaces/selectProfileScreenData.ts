@@ -6,6 +6,5 @@ export interface IinitalScreenData {
 }
 type IProfile = {
     ID: string
-    apiURL: string
     Description: string
 }

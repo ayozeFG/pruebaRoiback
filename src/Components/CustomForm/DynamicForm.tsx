@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { ILoyaltyForm } from '../../Interfaces/loyaltyFormData';
 import Button from '../Buttons/Button';
@@ -5,6 +6,7 @@ import CloseIcon from '../Buttons/CloseIcon';
 import GoBackIcon from '../Buttons/GoBackIcon';
 import { DynamicField } from './DynamicField';
 import styles from './DynamicForm.module.css';
+import { useEffect } from 'react';
 
 interface FormProps {
     formData: ILoyaltyForm;
@@ -13,13 +15,25 @@ interface FormProps {
     onSubmit: (data: any)=>void;
 }
 
-export const Form = ({ formData, closeClick, goBackClick, onSubmit }: FormProps) => {
+const DynamicForm = ({ formData, closeClick, goBackClick, onSubmit }: FormProps) => {
     const formMethods = useForm();
 
     //TODO: Pendiente controlar errores producidos en los campos.
-    //TODO: Mantener el botón de enviar deshabilitado hasta que rellenen el formulario.
 
-    const { handleSubmit, formState: { isSubmitting, errors }} = formMethods;
+    const { handleSubmit, formState: { isSubmitting, errors }, watch} = formMethods;
+    const [allFilled, setallFilled] = useState(false);
+
+    useEffect(() => {
+        const subscription = watch((data) =>{
+            //TODO: Solo activar el botón cuando estén todos los campos requeridos en lugar de todos directamente.
+            const someEmpty = Object.values(data).some(value => value.trim() === "");
+            setallFilled(state => !someEmpty);
+        });
+
+        return () => {
+            subscription.unsubscribe();
+        }
+    }, [watch, setallFilled]);
 
     return (
         <div className={`container ${styles.formScreen}`}>
@@ -49,10 +63,12 @@ export const Form = ({ formData, closeClick, goBackClick, onSubmit }: FormProps)
                                 }
                             </FormProvider>
                         </div>
-                        <Button Text='Enviar' Type='submit' Style='Filled' Disabled={isSubmitting}/>
+                        <Button Text='Enviar' Type='submit' Style='Filled' Disabled={isSubmitting || !allFilled}/>
                 </form>
 
             </div>
         </div>
     );
 };
+
+export default React.memo(DynamicForm);

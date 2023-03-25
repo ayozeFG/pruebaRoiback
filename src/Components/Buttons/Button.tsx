@@ -11,7 +11,7 @@ interface Props{
 
 const Button = ({ Text, Type='button', extraStyles, Style, Disabled=false, onClick }: Props) => {
     return (
-        <button style={extraStyles} type={Type} onClick={onClick} className={`${styles.btn} ${Style === 'Filled' ? styles.Filled : styles.Outlined} ${Disabled && styles.dsp}`} disabled={Disabled}>
+        <button style={extraStyles} type={Type} onClick={onClick} className={`${styles.btn} ${Style === 'Filled' ? styles.Filled : styles.Outlined} ${Disabled ? styles.dsp : ''}`} disabled={Disabled}>
             { Text }
         </button>
     )

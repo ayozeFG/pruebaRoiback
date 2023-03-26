@@ -8,18 +8,23 @@ import { getInitialData, loadProfileAdvantages, registerFidelization } from '../
 import { changeStep } from '../../store/slices/fidelizarCliente/clientFidelizationSlice';
 import SelectProfileScreen from './SelectProfileScreen';
 
-const INITIAL_SCREEN_DATA_ENDPOINT = 'api/selectScreen.json';
+export const INITIAL_SCREEN_DATA_ENDPOINT = 'api/selectScreen.json';
 
 const FidelizarCliente = () => {
 
     const dispatch:AppDispatch = useDispatch();
-    const { isLoading, initialScreenData, loyaltyStep, activeFormData, error, registeredID, advantages} = useSelector((state:RootState) => state.clientLoyalty);
+    const { isLoading, initialScreenData, loyaltyStep, activeFormData, error, registeredID, advantages} = useSelector((state:RootState) => state.clientFidelization);
 
     /**
      * Carga la información inicial la primera vez que se monta el componente, la cual contendrá los perfiles de fidelización existentes
      */
     useEffect(() => {
-        dispatch( getInitialData(INITIAL_SCREEN_DATA_ENDPOINT) );
+        const promise = dispatch( getInitialData(INITIAL_SCREEN_DATA_ENDPOINT) );
+
+        //Nos aseguramos de que si se desmonta el componente se aborte la petición http.
+        return ()=>{
+            promise.abort();
+        }
     }, []);
 
     /**
@@ -50,18 +55,25 @@ const FidelizarCliente = () => {
     }
 
     //TODO: Hacer una pantalla para cuando se producen errores
-    if(error) return <h2>Upss!! algo a ido mal. Disculpe las molestias</h2>;
+    let contenido = <h2>Upss!! algo a ido mal. Disculpe las molestias</h2>;
+    if(error){
+        contenido = <h2>Upss!! algo a ido mal {error}</h2>
 
-    if(loyaltyStep === 'idle' || isLoading) return <FullScreenLoading />;
+    }else if(loyaltyStep === 'idle' || isLoading){
+        contenido = <FullScreenLoading />;
 
-    if(loyaltyStep === 'initialScreen' && initialScreenData) return <SelectProfileScreen />;
+    }else if(loyaltyStep === 'initialScreen' && initialScreenData){
+        contenido = <SelectProfileScreen />;
 
-    if(loyaltyStep === 'profileForm' && activeFormData) return <DynamicForm formData={activeFormData} onSubmit={onSubmitForm} closeClick={goToStartScreen} goBackClick={goToStartScreen} />;
+    }else if(loyaltyStep === 'profileForm' && activeFormData){
+        contenido = <DynamicForm formData={activeFormData} onSubmit={onSubmitForm} closeClick={goToStartScreen} goBackClick={goToStartScreen} />;
 
-    if(loyaltyStep === 'seeAdvantajes' && advantages) return <AdvantagesPopUp advantages={advantages} closeClick={goToStartScreen} continueClick={goToStartScreen} />;
+    } else if(loyaltyStep === 'seeAdvantajes' && advantages){
+        contenido = <AdvantagesPopUp advantages={advantages} closeClick={goToStartScreen} continueClick={goToStartScreen} />;
 
-    //TODO: Hacer una pantalla para cuando se producen errores
-    return <h2>Upss!! algo a ido mal. Disculpe las molestias</h2>;
+    }
+
+    return contenido;
 }
 
 export default FidelizarCliente;

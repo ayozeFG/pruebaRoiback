@@ -1,4 +1,5 @@
 
+import React from 'react';
 import styles from './FullLoading.module.css';
 
 interface Props{
@@ -15,4 +16,4 @@ export const FullScreenLoading = ({ fadeIn=true }:Props) => (
     </div>
 )
 
-export default FullScreenLoading;
+export default React.memo(FullScreenLoading);

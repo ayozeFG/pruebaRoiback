@@ -1,4 +1,7 @@
 
+
+@import '../../index.css';
+
 .btn{
     padding: 1.5em;
     border-radius: 8px;
@@ -7,12 +10,12 @@
 }
 
 .Outlined{
-    border: 1px solid #0450b4;
-    color: #0450b4;
+    border: 1px solid var(--generalColor);
+    color: var(--generalColor);
 }
 
 .Filled{
-    background-color: #0450b4;
+    background-color: var(--generalColor);
     color: white;
 }
 

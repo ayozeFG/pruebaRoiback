@@ -3,7 +3,7 @@ import { clientFidelizationSlice } from './slices/fidelizarCliente/clientFideliz
 
 export const store = configureStore({
     reducer: {
-       clientLoyalty: clientFidelizationSlice.reducer,
+       clientFidelization: clientFidelizationSlice.reducer,
 
     },
 })

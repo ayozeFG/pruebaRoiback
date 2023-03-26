@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { IAdvantages, IinitalScreenData, ILoyaltyForm } from '../../../Interfaces/';
 import { getInitialData, getFidelizationFormData, registerFidelization, loadProfileAdvantages } from './thunks';
 
-type IInitialState = {
+export interface IInitialState {
     initialScreenData?: IinitalScreenData | null;
     activeFormData?: ILoyaltyForm | null;
     isLoading: boolean;
@@ -16,7 +16,7 @@ type IInitialState = {
 
 type ISteps = 'idle' | 'initialScreen' | 'profileForm' | 'seeAdvantajes';
 
-const iniState:IInitialState = {
+export const iniState:IInitialState = {
     isLoading: false,
     loyaltyStep: 'idle',
     initialScreenData: null,
@@ -27,7 +27,7 @@ const iniState:IInitialState = {
 }
 
 export const clientFidelizationSlice = createSlice({
-    name: 'clientLoyalty',
+    name: 'clientFidelization',
     initialState: iniState,
     reducers: {
         changeStep: (state, action: {type: string, payload: ISteps}) =>{
@@ -94,6 +94,8 @@ export const clientFidelizationSlice = createSlice({
             })
     }
 });
+
+export default clientFidelizationSlice.reducer;
 
 //Action creators are generated for each case reducer function
 export const {  changeStep } = clientFidelizationSlice.actions;

@@ -9,7 +9,7 @@ import { changeStep } from '../../store/slices/fidelizarCliente/clientFidelizati
 const SelectProfileScreen = () => {
 
     const dispatch:AppDispatch = useDispatch();
-    const { isLoading, initialScreenData, registeredID } = useSelector((state:RootState) => state.clientLoyalty);
+    const { isLoading, initialScreenData, registeredID } = useSelector((state:RootState) => state.clientFidelization);
 
     /**
      * Controla el click sobre un perfil de fidelización obtiene el formulario correspondiente.

@@ -9,6 +9,7 @@ npm run dev --> Para iniciar el proyecto en modo desarrollo
 npm run test --> Para ejecutar los test
 ```
 
+
 Funcionamiento:
 ```
 Los usuarios finales deberán poder elegir con qué tipo de perfil se van a registrar (Particular o Agencia),

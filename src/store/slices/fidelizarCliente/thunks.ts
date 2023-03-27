@@ -2,6 +2,7 @@
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { profileID } from '../../../../test/fixtures/fidelizationFixtures';
 
 /**
  * Obtiene los datos iniciales que incluyen los tipos de perfil de fidelización existentes
@@ -61,7 +62,7 @@ export const loadProfileAdvantages = createAsyncThunk('clientFidelization/loadPr
 /**
  * Guarda una nueva fidelización
  */
-export const registerFidelization = createAsyncThunk('clientFidelization/registerFidelization', async (formData: FormData, { dispatch, rejectWithValue }) =>{
+export const registerFidelization = createAsyncThunk('clientFidelization/registerFidelization', async ({formData, profileID}:{formData:FormData, profileID: string}, { dispatch, rejectWithValue }) =>{
     try {
 
        //TODO: Queda comentado porque hasta que exista un end-point real para guardar la información. Por ahora simulamos como que todo fue bien devolviendo un supuesto
@@ -77,9 +78,8 @@ export const registerFidelization = createAsyncThunk('clientFidelization/registe
        //const data = await respuesta.json();
 
         await wait(500); //Simula un poco de lentitud en la petición para ver compo responde el componente
-        //TODO: Supongo que la petición que registra, si fue correctamente devolverá el ID del perfil en el que se registró, o lo obtendremos de otro lugar. Por ahora lo devuelvo
-        //aquí para establecerlo en el store.
-        const profileID = "Agency";
+        //TODO: Supongo que si la petición que registra fue correctamente, devolverá el ID del perfil en el que se registró o cualquier otro tipo de ID. Por ahora para las
+        //pruebas simplemente devuelvo el ID de perfil en el que se quizo registrar el cliente
         return profileID;
 
     } catch (err: any) {

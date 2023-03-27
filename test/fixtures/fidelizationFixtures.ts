@@ -1,15 +1,18 @@
 //Contiene datos mockeados para reutilizar en los test.
 
-import { IinitalScreenData, ILoyaltyForm } from "../../src/Interfaces";
-import { IInitialState } from "../../src/store/slices/fidelizarCliente/clientFidelizationSlice";
+import { IinitalScreenData, IFidelizationForm } from "../../src/Interfaces";
+import { clientFidelizationSlice, IInitialState } from "../../src/store/slices/fidelizarCliente/clientFidelizationSlice";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
+import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 
 export const mockedInitialState: IInitialState = {
     isLoading: false,
-    loyaltyStep: 'idle',
+    fidelizationStep: 'idle',
     initialScreenData: null,
-    activeFormData: null,
+    profileForms: null,
+    selectedProfileID: null,
     error: null,
     registeredID: null,
     advantages: null,
@@ -37,7 +40,7 @@ const getInitialDataResponse: IinitalScreenData = {
     ]
 };
 
-const getFidelizationFormDataResponse: ILoyaltyForm = {
+const getFidelizationFormDataResponse: IFidelizationForm = {
     "ID": "Agency",
     "Title": "Travel Agency",
     "Fields": [
@@ -76,6 +79,18 @@ const mockNetWorkResponse = () => {
     mock.onGet(`api/selectScreen.json`).reply(200, getInitialDataResponse);
     mock.onGet(`api/Forms/${profileID}.json`).reply(200, getFidelizationFormDataResponse);
 };
+
+
+export function createTestStore() {
+
+    const store = configureStore({
+        reducer: {
+           clientFidelization: clientFidelizationSlice.reducer,
+
+        }
+    })
+    return store;
+}
 
 export {
     mockNetWorkResponse,

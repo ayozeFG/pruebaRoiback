@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { ILoyaltyForm } from '../../Interfaces/loyaltyFormData';
+import { IFidelizationForm } from '../../Interfaces/loyaltyFormData';
 import Button from '../Buttons/Button';
 import CloseIcon from '../Buttons/CloseIcon';
 import GoBackIcon from '../Buttons/GoBackIcon';
@@ -9,7 +9,7 @@ import styles from './DynamicForm.module.css';
 import { useEffect } from 'react';
 
 interface FormProps {
-    formData: ILoyaltyForm;
+    formData: IFidelizationForm;
     closeClick: (event: React.MouseEvent<HTMLElement>)=>void;
     goBackClick: (event: React.MouseEvent<HTMLElement>)=>void;
     onSubmit: (data: any)=>void;

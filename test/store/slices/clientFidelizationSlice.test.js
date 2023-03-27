@@ -1,16 +1,11 @@
 
 import { mockedInitialState, profileID, getInitialDataResponse, getFidelizationFormDataResponse, mockNetWorkResponse } from "../../fixtures/fidelizationFixtures";
-import reducer, { changeStep, clientFidelizationSlice, iniState } from "../../../src/store/slices/fidelizarCliente/clientFidelizationSlice";
+import reducer, { changeStep, clientFidelizationSlice, setSelectedProfileID } from "../../../src/store/slices/fidelizarCliente/clientFidelizationSlice";
 import { INITIAL_SCREEN_DATA_ENDPOINT } from "../../../src/Components/FidelizarCliente/FidelizarCliente";
 import { getInitialData, getFidelizationFormData } from "../../../src/store/slices/fidelizarCliente/thunks";
 import { store } from "../../../src/store/store";
 
 describe('Validaciones sobre el Slice de redux clientFidelizationSlice.js y los thunks asíncronos', () =>{
-
-    test('Comprueba que el reducer changeStep establezca correctamente la nueva propiedad en el state', ()=>{
-        const state = clientFidelizationSlice.reducer(mockedInitialState, changeStep('initialScreen'));
-        expect(state.loyaltyStep).toEqual('initialScreen');
-    });
 
     test("Debe devolver el estado inicial", () => {
         expect(
@@ -18,6 +13,17 @@ describe('Validaciones sobre el Slice de redux clientFidelizationSlice.js y los 
                 type: undefined,
             })
         ).toEqual(mockedInitialState);
+    });
+
+    test('Comprueba que el reducer "changeStep" establezca correctamente la nueva propiedad en el state', ()=>{
+        const state = clientFidelizationSlice.reducer(mockedInitialState, changeStep('initialScreen'));
+        expect(state.fidelizationStep).toEqual('initialScreen');
+    });
+
+    test('Comprueba que el reducer "setSelectedProfileID" establezca correctamente la nueva propiedad en el state', ()=>{
+        const profileID = "agency1234";
+        const state = clientFidelizationSlice.reducer(mockedInitialState, setSelectedProfileID(profileID));
+        expect(state.selectedProfileID).toEqual(profileID);
     });
 
     /**
@@ -36,7 +42,7 @@ describe('Validaciones sobre el Slice de redux clientFidelizationSlice.js y los 
 
             expect(state.isLoading).toBeFalsy();
             expect(state.initialScreenData).toEqual(getInitialDataResponse);
-            expect(state.loyaltyStep).toEqual('initialScreen');
+            expect(state.fidelizationStep).toEqual('initialScreen');
         });
     });
 
@@ -55,8 +61,8 @@ describe('Validaciones sobre el Slice de redux clientFidelizationSlice.js y los 
             const state = store.getState().clientFidelization;
 
             expect(state.isLoading).toBeFalsy();
-            expect(state.activeFormData).toEqual(getFidelizationFormDataResponse);
-            expect(state.loyaltyStep).toEqual('profileForm');
+            expect(state.profileForms[profileID]).toEqual(getFidelizationFormDataResponse);
+            expect(state.fidelizationStep).toEqual('profileForm');
         });
     });
 

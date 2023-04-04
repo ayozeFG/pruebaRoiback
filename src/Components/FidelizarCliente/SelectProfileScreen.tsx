@@ -4,7 +4,7 @@ import { getFidelizationFormData } from '../../store/slices/fidelizarCliente/thu
 import { AppDispatch, RootState } from '../../store/store';
 import styles from './FidelizarCliente.module.css';
 import { useMemo } from 'react';
-import { changeStep, getFormsLoaded, getSelectedFormData, setSelectedProfileID } from '../../store/slices/fidelizarCliente/clientFidelizationSlice';
+import { changeStep, getFormsLoaded, setSelectedProfileID } from '../../store/slices/fidelizarCliente/clientFidelizationSlice';
 
 const SelectProfileScreen = () => {
 
@@ -30,9 +30,8 @@ const SelectProfileScreen = () => {
 
     /**
      * Controla el click sobre el textó que pregunta al usuario si ya está registrado
-     * @param event - Evento del ratón sobre el elemento pulsado
      */
-    const handleRegistered = (event: React.MouseEvent<HTMLElement>) =>{
+    const handleRegistered = () =>{
         if(registeredID){
             dispatch(changeStep('seeAdvantajes'));
         }else{

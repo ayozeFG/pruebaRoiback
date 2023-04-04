@@ -27,7 +27,7 @@ const DynamicForm = ({ formData, closeClick, goBackClick, onSubmit }: FormProps)
         const subscription = watch((data) =>{
             //TODO: Solo activar el botón cuando estén todos los campos requeridos en lugar de todos directamente.
             const someEmpty = Object.values(data).some(value => value.trim() === "");
-            setallFilled(state => !someEmpty);
+            setallFilled(!someEmpty);
         });
 
         return () => {

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import AdvantagesPopUp from '../CongratsPopUp/AdvantagesPopUp';
 import DynamicForm from '../CustomForm/DynamicForm';
 import FullScreenLoading from '../Loading/FullScreenLoading';
@@ -13,7 +13,7 @@ export const INITIAL_SCREEN_DATA_ENDPOINT = 'api/selectScreen.json';
 const FidelizarCliente = () => {
 
     const dispatch:AppDispatch = useDispatch();
-    const { isLoading, initialScreenData, fidelizationStep, error, registeredID, advantages, selectedProfileID} = useSelector((state:RootState) => state.clientFidelization);
+    const { isLoading, initialScreenData, fidelizationStep, registeredID, advantages, selectedProfileID} = useSelector((state:RootState) => state.clientFidelization);
     const loadedFormData = useSelector((state:RootState) => getSelectedFormData(state, selectedProfileID!));
 
     /**
@@ -41,9 +41,11 @@ const FidelizarCliente = () => {
      * Responde al click en el botón de cerrar y continuar en la pantalla que se muestra despues de enviar el formulario y en los botones de retroceder y
      * cerrar de cada formulario. Por ahora como en el mockup, y hasta que se definan sus funciones o pantallas de destina, todas regresan al estado inicial.
      */
-    const goToStartScreen = ()=>{
-        dispatch(changeStep('initialScreen'));
-    }
+    const goToStartScreen = useCallback(
+        () => {
+          dispatch(changeStep('initialScreen'));
+        }, []
+    )
 
     /**
      * Responde al evento submit sobre el formulario de fidelización
@@ -55,26 +57,21 @@ const FidelizarCliente = () => {
         dispatch( registerFidelization({formData, profileID: selectedProfileID!}));
     }
 
+    if(fidelizationStep === 'idle' || isLoading)
+        return <FullScreenLoading />;
+
+    if(fidelizationStep === 'initialScreen' && initialScreenData)
+        return <SelectProfileScreen />;
+
+    if(fidelizationStep === 'profileForm' && loadedFormData)
+        return <DynamicForm formData={loadedFormData} onSubmit={onSubmitForm} closeClick={goToStartScreen} goBackClick={goToStartScreen} />;
+
+    if(fidelizationStep === 'seeAdvantajes' && advantages)
+        return <AdvantagesPopUp advantages={advantages} closeClick={goToStartScreen} continueClick={goToStartScreen} />;
+
     //TODO: Hacer una pantalla para cuando se producen errores
-    let contenido = <h2>Upss!! algo a ido mal. Disculpe las molestias</h2>;
-    if(error){
-        contenido = <h2>Upss!! algo a ido mal {error}</h2>
-
-    }else if(fidelizationStep === 'idle' || isLoading){
-        contenido = <FullScreenLoading />;
-
-    }else if(fidelizationStep === 'initialScreen' && initialScreenData){
-        contenido = <SelectProfileScreen />;
-
-    }else if(fidelizationStep === 'profileForm' && loadedFormData){
-        contenido = <DynamicForm formData={loadedFormData} onSubmit={onSubmitForm} closeClick={goToStartScreen} goBackClick={goToStartScreen} />;
-
-    } else if(fidelizationStep === 'seeAdvantajes' && advantages){
-        contenido = <AdvantagesPopUp advantages={advantages} closeClick={goToStartScreen} continueClick={goToStartScreen} />;
-
-    }
-
-    return contenido;
+    const contenido = "Upss!! algo a ido mal";
+    return <h2>{contenido}</h2>;
 }
 
 export default FidelizarCliente;

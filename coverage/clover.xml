@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1680203886193" clover="3.2.0">
+  <project timestamp="1680203886194" name="All files">
+    <metrics statements="141" coveredstatements="72" conditionals="65" coveredconditionals="15" methods="54" coveredmethods="23" elements="260" coveredelements="110" complexity="0" loc="141" ncloc="141" packages="8" files="13" classes="13"/>
+    <package name="src.Components.Buttons">
+      <metrics statements="6" coveredstatements="4" conditionals="12" coveredconditionals="4" methods="3" coveredmethods="1"/>
+      <file name="Button.tsx" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\Components\Buttons\Button.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="12" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="6" type="stmt"/>
+      </file>
+      <file name="CloseIcon.tsx" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\Components\Buttons\CloseIcon.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="2" type="cond" truecount="0" falsecount="3"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+      <file name="GoBackIcon.tsx" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\Components\Buttons\GoBackIcon.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="2" type="cond" truecount="0" falsecount="3"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.CongratsPopUp">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="AdvantagesPopUp.tsx" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\Components\CongratsPopUp\AdvantagesPopUp.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.CustomForm">
+      <metrics statements="18" coveredstatements="2" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <file name="DynamicField.tsx" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\Components\CustomForm\DynamicField.tsx">
+        <metrics statements="6" coveredstatements="1" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+      </file>
+      <file name="DynamicForm.tsx" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\Components\CustomForm\DynamicForm.tsx">
+        <metrics statements="12" coveredstatements="1" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.FidelizarCliente">
+      <metrics statements="47" coveredstatements="19" conditionals="28" coveredconditionals="4" methods="15" coveredmethods="6"/>
+      <file name="FidelizarCliente.tsx" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\Components\FidelizarCliente\FidelizarCliente.tsx">
+        <metrics statements="28" coveredstatements="18" conditionals="20" coveredconditionals="4" methods="8" coveredmethods="6"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="2" type="cond" truecount="2" falsecount="2"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="66" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="69" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="72" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="77" count="2" type="stmt"/>
+      </file>
+      <file name="SelectProfileScreen.tsx" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\Components\FidelizarCliente\SelectProfileScreen.tsx">
+        <metrics statements="19" coveredstatements="1" conditionals="8" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.Components.Loading">
+      <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <file name="FullScreenLoading.tsx" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\Components\Loading\FullScreenLoading.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="9" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="4" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="src.store">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="store.ts" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\store\store.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.store.slices.fidelizarCliente">
+      <metrics statements="55" coveredstatements="33" conditionals="14" coveredconditionals="4" methods="24" coveredmethods="13"/>
+      <file name="clientFidelizationSlice.ts" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\store\slices\fidelizarCliente\clientFidelizationSlice.ts">
+        <metrics statements="39" coveredstatements="25" conditionals="14" coveredconditionals="4" methods="18" coveredmethods="11"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="60" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="72" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="85" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="99" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="125" count="2" type="stmt"/>
+        <line num="131" count="2" type="stmt"/>
+        <line num="134" count="2" type="stmt"/>
+        <line num="137" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="140" count="2" type="stmt"/>
+      </file>
+      <file name="thunks.ts" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\src\store\slices\fidelizarCliente\thunks.ts">
+        <metrics statements="16" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="2"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="test.fixtures">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="fidelizationFixtures.ts" path="C:\Users\Ayoze\Desktop\pruebaRoiback\fidelizarCliente\test\fixtures\fidelizationFixtures.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="77" count="2" type="stmt"/>
+        <line num="78" count="2" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
+        <line num="80" count="2" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

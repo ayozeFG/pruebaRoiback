@@ -6,9 +6,9 @@ Utilización:
 git clone https://github.com/ayozeFG/pruebaRoiback.git
 npm install --> Para inicializar node
 npm run dev --> Para iniciar el proyecto en modo desarrollo
-npm run test --> Para ejecutar los test.  aaaaaaaaa bbbbbbb
+npm run test --> Para ejecutar los test.
 
-
+adsfadfadfafaf
 ```
 
 Funcionamiento:

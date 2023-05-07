@@ -8,7 +8,9 @@ npm install --> Para inicializar node
 npm run dev --> Para iniciar el proyecto en modo desarrollo
 npm run test --> Para ejecutar los test.
 
-adsfadfadfafaf
+adsfadfadfafaf,
+ahora corrigo el MR
+
 ```
 
 Funcionamiento:
